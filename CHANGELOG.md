@@ -3,6 +3,9 @@
 FEATURE:
   * Add `create_api_gateway_account` variable to optionally disable creation of the API Gateway account resource (which is a singleton per AWS Account)
 
+BUG:
+  * Remove restrictive AWS provider version constraint `< 5.75.0` - the breaking change that prompted this restriction has been addressed in the code
+
 ## 1.4.1 (Oct 8, 2025)
 
 BUG:
