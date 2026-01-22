@@ -1,3 +1,8 @@
+## Unreleased
+
+FEATURE:
+  * Add `create_api_gateway_account` variable to optionally disable creation of the API Gateway account resource (which is a singleton per AWS Account)
+
 ## 1.4.1 (Oct 8, 2025)
 
 BUG:

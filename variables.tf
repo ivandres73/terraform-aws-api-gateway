@@ -124,8 +124,8 @@ variable "models" {
 ########################################
 variable "method_settings" {
   description = "Stage method settings"
-  type = any
-  default = {} 
+  type        = any
+  default     = {}
 }
 
 variable "metrics_enabled" {
@@ -392,6 +392,12 @@ variable "waf_acl" {
 #######################
 # CloudWatch Variables
 #######################
+variable "create_api_gateway_account" {
+  description = "(Optional) Whether to create the API Gateway account resource. This is a singleton resource at the AWS account level. Set to false if managing this resource elsewhere or if multiple modules in the same account need to avoid conflicts. Defaults to true for backwards compatibility."
+  type        = bool
+  default     = true
+}
+
 variable "cloudwatch_role_arn" {
   description = "(Required) for the `api_gateway_account` resource."
   type        = string

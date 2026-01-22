@@ -90,6 +90,8 @@ Build RESTful APIs optimized for serverless workloads and HTTP backends using HT
     * Domain names supports only one ACM Certificate for all the domain names, so the certificate must be valid for all the chosen domain names.
   * (Using Existing Domains)
     * In the case where you need to use an existing domain (e.g. `create_api_domain_name = false`), ensure that both `domain_names` and `domain_base_path` are set to the desired values.
+  * (API Gateway Account Resource)
+    * The `aws_api_gateway_account` resource is a singleton at the AWS account level and can only be managed once per account. If you have multiple modules managing API Gateway in the same account, set `create_api_gateway_account = false` in all but one module to avoid conflicts. By default, this is set to `true` for backwards compatibility.
 <br>
 
 ## Upcoming/Recent Improvements
@@ -302,6 +304,7 @@ No modules.
 | <a name="input_client_certificate_id"></a> [client\_certificate\_id](#input\_client\_certificate\_id) | (Optional) Identifier of a client certificate for the stage. | `string` | `null` | no |
 | <a name="input_client_name"></a> [client\_name](#input\_client\_name) | client name to use this api. | `string` | `null` | no |
 | <a name="input_cloudwatch_role_arn"></a> [cloudwatch\_role\_arn](#input\_cloudwatch\_role\_arn) | (Required) for the `api_gateway_account` resource. | `string` | `null` | no |
+| <a name="input_create_api_gateway_account"></a> [create\_api\_gateway\_account](#input\_create\_api\_gateway\_account) | (Optional) Whether to create the API Gateway account resource. This is a singleton resource at the AWS account level. Set to false if managing this resource elsewhere or if multiple modules in the same account need to avoid conflicts. Defaults to true for backwards compatibility. | `bool` | `true` | no |
 | <a name="input_create_api_domain_name"></a> [create\_api\_domain\_name](#input\_create\_api\_domain\_name) | Whether to create API domain name resource. | `bool` | `false` | no |
 | <a name="input_create_rest_api_policy"></a> [create\_rest\_api\_policy](#input\_create\_rest\_api\_policy) | Enables creation of the resource policy for a given API. | `bool` | `true` | no |
 | <a name="input_create_usage_plan"></a> [create\_usage\_plan](#input\_create\_usage\_plan) | Allows creation of a usage plan. (Requires `var.enable_api_key = true`) | `bool` | `false` | no |
