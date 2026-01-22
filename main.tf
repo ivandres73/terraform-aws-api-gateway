@@ -106,6 +106,10 @@ resource "aws_api_gateway_method_settings" "this" {
       unauthorized_cache_control_header_strategy = lookup(each.value, "unauthorized_cache_control_header_strategy", "FAIL_WITH_403")
     }
   }
+
+  depends_on = [
+    aws_api_gateway_stage.this
+  ]
 }
 
 
