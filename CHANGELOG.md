@@ -2,6 +2,7 @@
 
 FEATURE:
   * Add `create_api_gateway_account` variable to optionally disable creation of the API Gateway account resource (which is a singleton per AWS Account)
+  * Add `disable_execute_api_endpoint` variable to control whether the default execute-api endpoint is enabled (defaults to true for security best practices)
 
 BUG:
   * Remove restrictive AWS provider version constraint `< 5.75.0` - the breaking change that prompted this restriction has been addressed in the code

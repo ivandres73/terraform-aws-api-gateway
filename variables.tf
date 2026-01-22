@@ -34,6 +34,12 @@ variable "endpoint_type" {
   default     = "EDGE"
 }
 
+variable "disable_execute_api_endpoint" {
+  description = "(Optional) Whether clients can invoke the API by using the default execute-api endpoint. By default, clients can invoke the API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint."
+  type        = bool
+  default     = true
+}
+
 #############################
 # API Gateway Stage Settings
 #############################
