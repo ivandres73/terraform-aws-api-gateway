@@ -70,6 +70,7 @@ resource "aws_api_gateway_stage" "this" {
     for_each = var.enable_canary == true ? [true] : []
 
     content {
+      deployment_id            = aws_api_gateway_deployment.this[count.index].id
       percent_traffic          = var.percent_traffic
       stage_variable_overrides = var.stage_variable_overrides
       use_stage_cache          = var.use_stage_cache

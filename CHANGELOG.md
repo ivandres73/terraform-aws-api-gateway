@@ -5,6 +5,7 @@ FEATURE:
 
 BUG:
   * Remove restrictive AWS provider version constraint `< 5.75.0` - the breaking change that prompted this restriction has been addressed in the code
+  * Add missing `deployment_id` argument to `canary_settings` block in `aws_api_gateway_stage` resource (required by AWS provider >= 6.0.0)
 
 ## 1.4.1 (Oct 8, 2025)
 
