@@ -1,13 +1,13 @@
 resource "aws_api_gateway_rest_api" "this" {
-  name              = var.api_name
-  description       = var.description
-  put_rest_api_mode = var.put_rest_api_mode
-  body              = var.openapi_definition
-  tags              = var.tags
+  name                         = var.api_name
+  description                  = var.description
+  put_rest_api_mode            = var.put_rest_api_mode
+  body                         = var.openapi_definition
+  disable_execute_api_endpoint = var.disable_execute_api_endpoint
+  tags                         = var.tags
 
   endpoint_configuration {
-    types                        = [var.endpoint_type]
-    disable_execute_api_endpoint = var.disable_execute_api_endpoint
+    types = [var.endpoint_type]
   }
 }
 
